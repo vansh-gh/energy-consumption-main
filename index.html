@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Energy Intelligence | Dark Ops</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ===== ROOT THEME ===== */
+:root {
+    --bg-main: #05070d;
+    --bg-card: rgba(15, 23, 42, 0.85);
+    --neon-blue: #38bdf8;
+    --neon-purple: #8b5cf6;
+    --neon-green: #22c55e;
+    --text-main: #e5e7eb;
+    --text-soft: #94a3b8;
+}
+
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(circle at top, #0f172a, #020617 70%),
+        linear-gradient(135deg, #020617, #000);
+    color: var(--text-main);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 45px 20px 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: var(--neon-blue);
+    text-shadow: 0 0 20px rgba(56,189,248,0.6);
+}
+
+.header h3 {
+    margin-top: 10px;
+    color: var(--text-soft);
+    font-weight: 400;
+}
+
+.header p {
+    max-width: 950px;
+    margin: 20px auto 0;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #c7d2fe;
+}
+
+/* ===== FORM ===== */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.formin {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(56,189,248,0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 50px rgba(56,189,248,0.15);
+}
+
+.formin label {
+    font-size: 1.1rem;
+    color: var(--neon-blue);
+}
+
+.formin input, .formin select {
+    width: 100%;
+    padding: 10px;
+    background: #020617;
+    border: 1px solid rgba(56,189,248,0.4);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.formin input:focus, .formin select:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(56,189,248,0.6);
+}
+
+.submit-box {
+    grid-column: span 5;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.submit-box button {
+    width: 520px;
+    height: 55px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    color: #020617;
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+    box-shadow: 0 0 30px rgba(139,92,246,0.6);
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard {
+    max-width: 1300px;
+    margin: 60px auto;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(139,92,246,0.25);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 40px rgba(139,92,246,0.2);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: var(--neon-purple);
+}
+
+.card p, .card li {
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+/* ===== LISTS ===== */
+.card ul {
+    padding-left: 20px;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+}
+
+/* ===== GRAPH ===== */
+.graph img {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(56,189,248,0.4);
+}
+
+/* ===== CHATBOT ===== */
+.chatbox input {
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(56,189,248,0.4);
+    background: #020617;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.chatbox button {
+    padding: 10px 18px;
+    margin-left: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+    color: #020617;
+}
+
+#chatReply {
+    margin-top: 15px;
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .formin {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .submit-box {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 800px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>⚡ AI ENERGY INTELLIGENCE</h1>
+    <h3>Dark Ops • Predict • Optimize • Dominate Consumption</h3>
+    <p>
+        A high-performance AI system that predicts electricity consumption,
+        explains usage behavior, simulates alternate scenarios, and delivers
+        actionable optimization strategies with surgical precision.
+    </p>
+</div>
+
+<div class="form-wrapper">
+<form method="post" action="/" class="formin">
+
+    <div>
+        <label>🏠 Rooms</label>
+        <input type="number" name="size" required>
+    </div>
+
+    <div>
+        <label>👥 Occupancy</label>
+        <input type="number" name="people" required>
+    </div>
+
+    <div>
+        <label>🔌 Appliances</label>
+        <input type="number" name="insulation" required>
+    </div>
+
+    <div>
+        <label>❄️ HVAC</label>
+        <input type="number" name="heating_cooling_systems" required>
+    </div>
+
+    <div>
+        <label>📍 State</label>
+        <select name="state">
+            <option value="UP">Uttar Pradesh</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+        </select>
+    </div>
+
+    <div class="submit-box">
+        <button type="submit">🚀 EXECUTE ANALYSIS</button>
+    </div>
+
+{% if size %}
+
+</form>
+</div>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h2>📊 Core Prediction</h2>
+        <p>Bill: ₹{{ predicted_energy }}</p>
+        <p>Units: {{ predicted_energy_divided }} kWh</p>
+        <p>Category: {{ usage_category }}</p>
+        <p>Confidence: {{ confidence }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>🧠 Model Metrics</h2>
+        <p>R² Score: {{ accuracy }}%</p>
+        <p>MAE: ₹{{ mae }}</p>
+        <p>MSE: {{ mse }}</p>
+    </div>
+
+    <div class="card">
+        <h2>🔍 Explainability</h2>
+        <ul>
+            {% for k, v in impact.items() %}
+            <li>{{ k }} → ₹{{ v }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>⚡ Optimization Engine</h2>
+        <ul>
+            {% for tip in suggestions %}
+            <li>✅ {{ tip }}</li>
+            {% endfor %}
+        </ul>
+        <p>Optimized Bill: ₹{{ optimized_bill }}</p>
+        <p>Savings: ₹{{ savings }}</p>
+        <p>Energy Score: {{ energy_score }}/100</p>
+    </div>
+
+</div>
+
+<div class="dashboard">
+    <div class="card">
+        <h2>🔁 What-If Scenarios</h2>
+        <ul>
+            {% for k, v in what_if.items() %}
+            <li>{{ k }} → ₹{{ v }}</li>
+            {% endfor %}
+        </ul>
+        <p>{{ anomaly }}</p>
+    </div>
+
+    <div class="card graph">
+        <h2>📈 Model Validation</h2>
+        <img src="data:image/png;base64, {{ plot }}">
+    </div>
+</div>
+
+<div class="dashboard">
+    <div class="card chatbox">
+        <h2>🤖 AI Advisor</h2>
+        <input id="chatInput" placeholder="Ask about bill, savings, tariff...">
+        <button onclick="sendMessage()">Ask</button>
+        <div id="chatReply"></div>
+    </div>
+</div>
+
+{% endif %}
+
+<script>
+function sendMessage() {
+    const msg = document.getElementById("chatInput").value;
+    if (!msg) return;
+
+    fetch("/chatbot", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: "message=" + encodeURIComponent(msg)
+    })
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("chatReply").innerText = data;
+    });
+}
+</script>
+
+</body>
+</html>
